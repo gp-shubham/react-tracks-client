@@ -11,11 +11,14 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelActions from "@material-ui/core/ExpansionPanelActions";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import AudioPlayer from "../Shared/AudioPlayer"
+import CreateTrack from "./CreateTrack"
 import UpdateTrack from "./UpdateTrack"
 import DeleteTrack from "./DeleteTrack"
+import LikeTrack from "./LikeTrack"
 
 const TrackList = ({ classes, tracks }) => (
   <List>
+    <CreateTrack />
     {tracks.map(track => (
       <ExpansionPanel key={track.id}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -29,7 +32,7 @@ const TrackList = ({ classes, tracks }) => (
               primary={track.title}
               secondary={
                 <Link className={classes.link} to={`/profile/${track.postedBy.id}`}>
-                  {track.postedBy.username}
+                  {track.postedBy.name}
                 </Link>
               } />
             <AudioPlayer />
